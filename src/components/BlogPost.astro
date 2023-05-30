@@ -1,4 +1,7 @@
 ---
-const { title, url } = Astro.props
+const { title, url } = Astro.props;
+const { BASE_URL } = import.meta.env;
+const fullURL = `${BASE_URL}/${url}/`.replace(/\/\/+/g, "/");
 ---
-<li><a href={url}>{title}</a></li>
+
+<li><a href=`${fullURL}`>{title}</a></li>
